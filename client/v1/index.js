@@ -35,6 +35,10 @@ console.log(MY_FAVORITE_BRANDS[0]);
 // I can find on these e-shops
 // 2. Log the variable
 
+const CHEAPEST_TSHIRT = 'https://www.faguo-store.com/fr/vetements/7606-arcy-t-shirt-en-coton-recycle-kaki.html';
+console.log(CHEAPEST_TSHIRT);
+
+
 /**
  * 👕
  * Easy 😁?
@@ -48,10 +52,25 @@ console.log(MY_FAVORITE_BRANDS[0]);
 // 1. Create a variable and assign it the number of products
 // 2. Log the variable
 
+var NbProducts = marketplace.length ;
+console.log(NbProducts);
+
+
+
 // 🎯 TODO 3: Brands name
 // 1. Create a variable and assign it the list of brands name only
 // 2. Log the variable
 // 3. Log how many brands we have
+
+var BrandList = [];
+for(var i = 0; i<marketplace.length; ++i){
+  if(BrandList.includes(marketplace[i].brand)==false){
+    BrandList.push(marketplace[i].brand)
+  }
+}
+console.log(BrandList)
+console.log(BrandList.length)
+
 
 // 🎯 TODO 4: Sort by price
 // 1. Create a function to sort the marketplace products by price
