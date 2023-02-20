@@ -71,11 +71,16 @@ for(var i = 0; i<marketplace.length; ++i){
 console.log(BrandList)
 console.log(BrandList.length)
 
+//test
 
 // 🎯 TODO 4: Sort by price
 // 1. Create a function to sort the marketplace products by price
 // 2. Create a variable and assign it the list of products by price from lowest to highest
 // 3. Log the variable
+
+
+
+
 
 // 🎯 TODO 5: Sort by date
 // 1. Create a function to sort the marketplace objects by products date
