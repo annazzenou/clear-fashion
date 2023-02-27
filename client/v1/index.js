@@ -161,6 +161,12 @@ console.log(AvgPrice)
 // 2. Log the variable
 // 3. Log the number of products by brands
 
+const Brands = [];
+
+
+
+
+
 // 🎯 TODO 9: Sort by price for each brand
 // 1. For each brand, sort the products by price, from highest to lowest
 // 2. Log the sort
@@ -372,9 +378,35 @@ const COTELE_PARIS = [
 // // 1. Log if we have new products only (true or false)
 // // A new product is a product `released` less than 2 weeks.
 
+var NewProducts = [];
+for(var i = 0; i<COTELE_PARIS.length; ++i){
+  var date = new Date(COTELE_PARIS[i].released);
+  var today = new Date();
+  var difference = today - date;
+  var days = (difference / (1000 * 3600 * 24));
+
+  if(days< 50 ){
+    NewProducts.push(COTELE_PARIS[i])
+  }
+}
+console.log(NewProducts)
+
+
 // 🎯 TODO 2: Reasonable price
 // // 1. Log if coteleparis is a reasonable price shop (true or false)
 // // A reasonable price if all the products are less than 100€
+
+function ReasonablePrice(products) {
+  for(var i = 0; i<products.length; ++i){
+    if(products[i].price> 100 ){
+      return false;
+    }
+  }
+  return true;
+}
+console.log(ReasonablePrice(COTELE_PARIS))
+
+
 
 // 🎯 TODO 3: Find a specific product
 // 1. Find the product with the uuid `2b9a47e3-ed73-52f6-8b91-379e9c8e526c`
