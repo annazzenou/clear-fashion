@@ -84,7 +84,9 @@ function sortProductsByPrice(products) {
   return products;
 }
 
-var PriceList = [];
+const PriceList = sortProductsByPrice(marketplace);
+
+console.log(PriceList)
 
 
 
@@ -93,13 +95,48 @@ var PriceList = [];
 // 2. Create a variable and assign it the list of products by date from recent to old
 // 3. Log the variable
 
+function sortProductsByDate(products) {
+  products.sort(function(a, b) {
+    const date1 = new Date(a.released);
+    const date2 = new Date(b.released);
+    return date2 - date1;
+  });
+  return products;
+}
+
+const DateList = sortProductsByDate(marketplace);
+
+console.log(DateList)
+
+
 // 🎯 TODO 6: Filter a specific price range
 // 1. Filter the list of products between 50€ and 100€
 // 2. Log the list
 
+var FilterPrice = [];
+for(var i = 0; i<marketplace.length; ++i){
+  if(marketplace[i].price>=50 && marketplace[i].price<=100){
+    FilterPrice.push(marketplace[i])
+  }
+}
+console.log(FilterPrice)
+
+
+
+
 // 🎯 TODO 7: Average price
 // 1. Determine the average price of the marketplace
 // 2. Log the average
+
+var AvgPrice = 0 ;
+for(var i = 0; i<marketplace.length; ++i){
+  AvgPrice += marketplace[i].price;
+}
+AvgPrice = AvgPrice/marketplace.length
+
+console.log(AvgPrice)
+
+
 
 /**
  * 🏎
