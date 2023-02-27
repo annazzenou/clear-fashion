@@ -161,9 +161,21 @@ console.log(AvgPrice)
 // 2. Log the variable
 // 3. Log the number of products by brands
 
-const Brands = [];
+const Brands = {};
 
+marketplace.forEach(product => {
+  if (Brands[product.brand]) {
+    Brands[product.brand].push(product);
+  } else {
+    Brands[product.brand] = [product];
+  }
+});
 
+console.log(Brands);
+
+Object.keys(Brands).forEach(brandName => {
+  console.log(`${brandName}: ${Brands[brandName].length}`);
+});
 
 
 
