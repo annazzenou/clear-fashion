@@ -183,9 +183,23 @@ Object.keys(Brands).forEach(brandName => {
 // 1. For each brand, sort the products by price, from highest to lowest
 // 2. Log the sort
 
+Object.keys(Brands).forEach(brand => {
+  Brands[brand].sort((a, b) => b.price - a.price);
+});
+
+console.log(Brands);
+
+
 // 🎯 TODO 10: Sort by date for each brand
 // 1. For each brand, sort the products by date, from old to recent
 // 2. Log the sort
+
+Object.keys(Brands).forEach(brand => {
+  Brands[brand].sort((a, b) => new Date(a.released) - new Date(b.released));
+});
+
+console.log(Brands);
+
 
 /**
  * 💶
@@ -197,6 +211,18 @@ Object.keys(Brands).forEach(brandName => {
 // 🎯 TODO 11: Compute the p90 price value
 // 1. Compute the p90 price value of each brand
 // The p90 value (90th percentile) is the lower value expected to be exceeded in 90% of the products
+
+
+Object.keys(Brands).forEach(brand => {
+  const prices = Brands[brand].map((product) => product.price);
+  prices.sort((a, b) => a - b);
+  const p90Index = Math.ceil(prices.length * 0.9);
+  const p90Value = prices[p90Index - 1];
+  console.log(`${brand}: ${p90Value}`);
+});
+
+
+
 
 /**
  * 🧥
