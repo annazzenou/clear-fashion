@@ -28,17 +28,15 @@ const selectPage = document.querySelector('#page-select');
 const selectBrand = document.querySelector('#brand-select');
 const selectFilter = document.querySelector('#filter-select');
 const selectFilter2 = document.querySelector('#filter-select');
-
 const selectSort = document.querySelector('#sort-select');
-
 const sectionProducts = document.querySelector('#products');
 const spanNbProducts = document.querySelector('#nbProducts');
 const spanNbRecentProducts = document.querySelector('#nbRecentProducts');
 const spanNbBrands = document.querySelector('#nbBrands');
-
 const spanP50Price = document.querySelector('#span50');
 const spanP90Price = document.querySelector('#span90');
 const spanP95Price = document.querySelector('#span95');
+const lastDate = document.querySelector('#lastDate');
 
 
 /**
@@ -91,7 +89,7 @@ const renderProducts = products => {
       return `
       <div class="product" id=${product.uuid}>
         <span>${product.brand}</span>
-        <a href="${product.link}">${product.name}</a>
+        <a href="${product.link}" target="_blank">${product.name}</a>
         <span>${product.price}</span>
       </div>
     `;
@@ -207,6 +205,10 @@ const renderIndicators = pagination => {
   spanP50Price.innerHTML = `${p50.toFixed(2)} €`;
   spanP90Price.innerHTML = `${p90.toFixed(2)} €`;
   spanP95Price.innerHTML = `${p95.toFixed(2)} €`;
+
+  const releasedDates =  allProducts.map(product => new Date(product.released));
+  const lastreleasedDate = new Date(Math.max.apply(null, releasedDates));
+  lastDate.innerHTML = lastreleasedDate.toLocaleDateString();
 
 };
 
