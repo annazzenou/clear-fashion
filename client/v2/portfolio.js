@@ -21,6 +21,7 @@ Search for available brands list
 let currentProducts = [];
 let allProducts = [];
 let currentPagination = {};
+let favouriteList = [];
 
 // instantiate the selectors
 const selectShow = document.querySelector('#show-select');
@@ -88,7 +89,7 @@ const renderProducts = products => {
     .map(product => {
       return `
       <div class="product" id=${product.uuid}>
-      <span class="material-symbols-outlined">heart_plus</span>        
+      <button class="material-symbols-outlined" onclick="fav('${product.uuid}')">heart_plus</button>
       <span>${product.brand}</span>
         <a href="${product.link}" target="_blank">${product.name}</a>
         <span>${product.price}</span>
@@ -168,7 +169,18 @@ const sortProducts = sortType => {
 };
 
 
+function fav(products) {
+  for(var i = 0; i < currentProducts.length; ++i){
+    if((currentProducts[i].uuid).toString()===products && favouriteList.includes(currentProducts[i])=== false){
+      favouriteList.push(currentProducts[i]);
+    }
+  }
+  return favouriteList;
+}
 
+function displayfav(){
+  render(favouriteList,currentPagination);
+}
 
 
 
