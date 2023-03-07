@@ -1,26 +1,41 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>👕 Clear Fahion | Environmentally & human-friendly clothes</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        font-size : 16px;
+      }
+      /* add your own styles here */
+    </style>
   </head>
   <body>
-    <h1>Clear fashion</h1>
-    <section id="options">
-      <div id="show">
-        <label for="show-select">Show:</label>
-        <select name="show" id="show-select">
-          <option value="12">12</option>
-          <option value="24">24</option>
-          <option value="48">48</option>
-        </select>
-      </div>
-      <div id="page">
-        <label for="page-select">Go to page:</label>
-        <select name="page" id="page-select"> </select>
-      </div>
-      <div id="filters">
+    <header>
+      <h1>Clear fashion</h1>
+    </header>
+    <main>
+      <section id="options">
+        <form>
+          <fieldset>
+            <legend>Show</legend>
+            <label for="show-select">Number of products to display:</label>
+            <select name="show" id="show-select">
+              <option value="12">12</option>
+              <option value="24">24</option>
+              <option value="48">48</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <legend>Go to page</legend>
+            <label for="page-select">Select page:</label>
+            <select name="page" id="page-select"></select>
+          </fieldset>
+          <div id="filters">
         <div id="filter">
           <label for="filter-select">Filters :</label>
           <select name="filter" id="filter-select"> </select>

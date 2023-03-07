@@ -3,38 +3,34 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 
 
+
+
 /**
- * Parse webpage e-shop for Dedicated
+ * Parse webpage e-shop for Montlimart
  * @param  {String} data - html response
  * @return {Array} products
  */
-const parseDedicated = data => {
+const parseMontlimart = data => {
   const $ = cheerio.load(data);
 
-  return $('.productList-container .productList')
+  return $('.product-list .product-list__block*')
     .map((i, element) => {
       const name = $(element)
-        .find('.productList-title')
+        .find('.product-miniature__title')
         .text()
         .trim()
         .replace(/\s/g, ' ');
-      const price = parseInt(
+      const price = parseFloat(
         $(element)
-          .find('.productList-price')
+          .find('.product-miniature__pricing')
           .text()
       );
-      const category = 'Dedicated';
+      const category = 'Montlimart';
 
-
-      return {name, price, category};
+      return { name, price, category};
     })
     .get();
 };
-
-
-
-
-
 
 /**
  * Scrape all the products for a given url page and store them in a JSON file
@@ -49,10 +45,10 @@ module.exports.scrape = async url => {
 
     if (response.ok) {
       const body = await response.text();
-      const products = parseDedicated(body);
+      const products2 = parseMontlimart(body);
 
       // Write the products to a JSON file
-      fs.writeFileSync('products.json', JSON.stringify(products, null, 2));
+      fs.writeFileSync('products.json', JSON.stringify(products2, null, 2));
 
       return products;
     }

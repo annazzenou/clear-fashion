@@ -32,6 +32,35 @@ const parseDedicated = data => {
 };
 
 
+/**
+ * Parse webpage e-shop for Circle Sportswear
+ * @param  {String} data - html response
+ * @return {Array} products
+ */
+const parseCircleSportswear = data => {
+  const $ = cheerio.load(data);
+
+  return $('.card__information .grid__item')
+    .map((i, element) => {
+      const name = $(element)
+        .find('.card__heading h5')
+        .text()
+        .trim()
+        .replace(/\s/g, ' ');
+      const price = parseFloat(
+        $(element)
+          .find('.price__container')
+          .text()
+          .replace(/[^0-9.-]+/g,"")
+      );
+
+      const category = 'Circle Sportswear';
+
+      return { name, price, category };
+    })
+    .get();
+};
+
 
 
 
@@ -49,7 +78,7 @@ module.exports.scrape = async url => {
 
     if (response.ok) {
       const body = await response.text();
-      const products = parseDedicated(body);
+      const products = parseCircleSportswear(body);
 
       // Write the products to a JSON file
       fs.writeFileSync('products.json', JSON.stringify(products, null, 2));
