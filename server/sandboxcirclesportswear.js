@@ -1,17 +1,12 @@
 /* eslint-disable no-console, no-process-exit */
-const dedicatedbrand = require('./eshops/dedicatedbrand');
-const montlimartbrand = require('./eshops/montlimartbrand');
-// https://www.montlimart.com/99-vetements
-// https://www.montlimart.com/101-t-shirts
 const circlesportswearbrand = require('./eshops/circlesportswearbrand');
 
 
-
-async function sandbox (eshop = 'https://www.dedicatedbrand.com/en/men/news') {
+async function sandbox (eshop = 'https://shop.circlesportswear.com/collections/t-shirts-homme') {
   try {
     console.log(`🕵️‍♀️  browsing ${eshop} eshop`);
 
-    const products = await dedicatedbrand.scrape(eshop);
+    const products = await circlesportswearbrand.scrape(eshop);
 
     console.log(products);
     console.log('done');
@@ -25,4 +20,3 @@ async function sandbox (eshop = 'https://www.dedicatedbrand.com/en/men/news') {
 const [,, eshop] = process.argv;
 
 sandbox(eshop);
-

@@ -23,10 +23,10 @@ const parseDedicated = data => {
           .find('.productList-price')
           .text()
       );
-      const category = 'Dedicated';
+      const brand = 'Dedicated';
 
 
-      return {name, price, category};
+      return {name, price, brand};
     })
     .get();
 };
