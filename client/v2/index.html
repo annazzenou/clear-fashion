@@ -5,44 +5,83 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>👕 Clear Fahion | Environmentally & human-friendly clothes</title>
   </head>
+  <style>
+    		.column {
+			float: left;
+			width: 50%;
+		}
+    body {
+      font-family: "Arial", sans-serif;
+      font-size : 16px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      margin-right: 50px;
+      margin-left: 100px;
+    }
+    header {
+      font-family: "Arial", sans-serif;
+      font-size : 25px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      margin-right: 100px;
+      margin-left: 100px;
+      background: rgba(0, 128, 0, 0.3) /* Green background with 30% opacity */
+
+    }
+	
+  </style>
+  <header>
+    <center>
+      <h1>👕 Clear fashion 👕</h1>
+    </center>
+  </header>
   <body>
-    <h1>Clear fashion</h1>
-    <section id="options">
-      <div id="show">
-        <label for="show-select">Show:</label>
-        <select name="show" id="show-select">
-          <option value="12">12</option>
-          <option value="24">24</option>
-          <option value="48">48</option>
-        </select>
-      </div>
-      <div id="page">
-        <label for="page-select">Go to page:</label>
-        <select name="page" id="page-select"> </select>
-      </div>
-      <div id="filters">
-        <div id="filter">
-          <label for="filter-select">Filters :</label>
-          <select name="filter" id="filter-select"> </select>
+    <center>
+    <h1>Environmentally & human-friendly clothes</h1>
+    </center>
+    <div class="column">
+      <!-- content for first column goes here -->
+      <h2>Options</h2>
+      <section id="options">
+        <div id="show">
+          <label for="show-select">Show:</label>
+          <select name="show" id="show-select">
+            <option value="12">12</option>
+            <option value="24">24</option>
+            <option value="48">48</option>
+          </select>
         </div>
-        <div id="brand">
-          <label for="brand-select">By brands:</label>
-          <select name="brand" id="brand-select"> </select>
+        <div id="page">
+          <label for="page-select">Go to page:</label>
+          <select name="page" id="page-select"> </select>
         </div>
-      </div>
-      <div id="sort">
-        <label for="sort-select">Sort:</label>
-        <select name="sort" id="sort-select">
-          <option value="price-asc">Cheaper</option>
-          <option value="price-desc">Expensive</option>
-          <option value="date-asc">Recently released</option>
-          <option value="date-desc">Anciently released</option>
-        </select>
-      </div>
-      <div id="favoris">
-        <button onclick="displayfav()">Display Favourite Items</button>
-      </div>
-    </section>
+        <div id="filters">
+          <div id="filter">
+            <label for="filter-select">Filters :</label>
+            <select name="filter" id="filter-select"> </select>
+          </div>
+          <div id="brand">
+            <label for="brand-select">By brands:</label>
+            <select name="brand" id="brand-select"> </select>
+          </div>
+        </div>
+        <div id="sort">
+          <label for="sort-select">Sort:</label>
+          <select name="sort" id="sort-select">
+            <option value="price-asc">Cheaper</option>
+            <option value="price-desc">Expensive</option>
+            <option value="date-asc">Recently released</option>
+            <option value="date-desc">Anciently released</option>
+          </select>
+        </div>
+        <div id="favoris">
+          <button onclick="displayfav()">Display Favourite Items</button>
+        </div>
+      </section>
+
+    </div>
+    <div class="column">
+      <!-- content for second column goes here -->   
     <section id="indicators">
       <h2>Indicators</h2>
       <div>
@@ -73,7 +112,12 @@
         <span>Last released date</span>
         <span id="lastDate">0</span>
       </div>
-    </section>
+      </section>
+      </div> 
+      <div>
+        <h1> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+
+      </div>
     <section id="products"></section>
     <script type="text/javascript" charset="UTF-8" src="portfolio.js"></script>
   </body>
